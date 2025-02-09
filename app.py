@@ -6,7 +6,8 @@ import io
 # Initialize Flask app
 app = Flask(__name__)
 
-model_name = "nlpconnect/vit-gpt2-image-captioning"
+# model_name = "nlpconnect/vit-gpt2-image-captioning"
+model_name = "Salesforce/blip-image-captioning-base"
 
 @app.route("/health-check", methods=["GET"])
 def healthCheck():
