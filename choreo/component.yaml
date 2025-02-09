@@ -1,0 +1,30 @@
+apiVersion: coreo.ai/v1
+kind: Component
+metadata:
+  name: image-captioning-api
+  version: v1.0.0
+description: A Flask API for generating image captions using a ViT-GPT2 model.
+spec:
+  type: service
+  runtime: python3.9
+  entrypoint: app.py
+  dependencies:
+    - flask
+    - transformers
+    - pillow
+    - torch
+  ports:
+    - name: http
+      containerPort: 5000
+      protocol: TCP
+  env:
+    - name: MODEL_NAME
+      value: "nlpconnect/vit-gpt2-image-captioning"
+  resources:
+    limits:
+      memory: "2Gi"
+      cpu: "1"
+    requests:
+      memory: "1Gi"
+      cpu: "0.5"
+  volumes: []
